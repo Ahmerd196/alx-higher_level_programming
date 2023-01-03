@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-    """this represents a rectangle"""    
+    """this represents a rectangle"""
     def __init__(self, width=0, height=0):
     """Initializing this rectangle class
     Args:
