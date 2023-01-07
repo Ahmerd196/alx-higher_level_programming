@@ -1,17 +1,26 @@
 #!/usr/bin/python3
 """
-This module adds two integers and returns sum of two numbers a & b.
-Only accepts integers and floats else TypeError is raised
-This module will convert float to integer
+This module is composed by a function that adds two numbers
 """
 
+
 def add_integer(a, b=98):
-    """
-    add_integer: Check input if correct, cast both into ints and return sum
+    """ Function that adds two integer and/or float numbers
+    Args:
+        a: first number
+        b: second number
+    Returns:
+        The addition of the two given numbers
+    Raises:
+        TypeError: If a or b aren't integer and/or float numbers
+
+
     """
 
-    if isinstance(a, (int, float)) is False:
-        raise TypeError('a must be an integer')
-    elif isinstance(b, (int, float)) is False:
-        raise TypeError('b must be an integer')
-    return(int(a) + int(b))
+    if not isinstance(a, int) and not isinstance(a, float):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, int) and not isinstance(b, float):
+        raise TypeError("b must be an integer")
+    a = int(a)
+    b = int(b)
+    return (a + b)
