@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 """
-Module to send a request to a URL and display the value of the X-Request-Id header variable.
+Module to send a request to a URL and display the body of the response.
 """
 
 import urllib.request
+import urllib.error
 import sys
 
 if __name__ == "__main__":
     url = sys.argv[1]
 
-    with urllib.request.urlopen(url) as response:
-        headers = response.info()
-
-    x_request_id = headers.get('X-Request-Id')
-    print(x_request_id)
+    try:
+        with urllib.request.urlopen(url) as response:
+            body = response.read().decode('utf-8')
+            print(body)
+    except urllib.error.HTTPError as e:
+        print("Error code: {}".format(e.code))
