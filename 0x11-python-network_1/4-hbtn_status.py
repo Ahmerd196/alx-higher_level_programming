@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 """
-Module to fetch a URL and display the body of the response.
+Python script that fetches an URL with requests package
 """
-
 import requests
 
-if __name__ == "__main__":
-    url = "https://alx-intranet.hbtn.io/status"
-    response = requests.get(url)
-    body = response.text
 
-    print("Body response:")
-    print("\t- type: {}".format(type(body)))
-    print("\t- content: {}".format(body))
+if __name__ == "__main__":
+    r = requests.get('https://intranet.hbtn.io/status')
+    t = r.text
+    print('Body response:\n\t- type: {}\n\t- content: {}'.format(type(t), t))
